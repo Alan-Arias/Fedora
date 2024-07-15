@@ -10,7 +10,7 @@ class LoginController extends Controller
 {
     public function showLoginForm()
     {
-        return view('login.login');
+        return view(url('login.login'));
     }
 
     public function login(Request $request)
@@ -22,7 +22,7 @@ class LoginController extends Controller
 
     if (!$user || $user->password != $credentials['password']) {
         // Usuario y contraseña no encontrados en la tabla usuarios
-        return redirect('/login')
+        return redirect(url('/login'))
             ->with(['error' => 'Usuario o contraseña incorrecto']);
     }
 
@@ -42,13 +42,13 @@ class LoginController extends Controller
     // Verificar el tipo de usuario y redirigir en consecuencia
     if ($user->desc_user == 'trabajador') {
         // Usuario es un trabajador
-        return redirect('/trabajadorindex');
+        return redirect(url('/trabajadorindex'));
     } else if ($user->desc_user == 'cliente') {
         // Usuario es un cliente
-        return redirect('/clientelog');
+        return redirect(url('/clientelog'));
     } else if ($user->desc_user == 'admin') {
         // Usuario es un administrador
-        return redirect('/admin');
+        return redirect(url('/admin'));
     }
 }
 public function logout(Request $request)
