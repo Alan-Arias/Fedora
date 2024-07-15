@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 class ClienteController extends Controller
 {
     /**
+     * env modificado
      * Display a listing of the resource.
      */
     public function index()
