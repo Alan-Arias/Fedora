@@ -57,7 +57,7 @@ public function logout(Request $request)
         $request->session()->invalidate(); // Invalidar la sesión existente
         $request->session()->regenerateToken(); // Generar un nuevo token CSRF
 
-        return redirect('/'); // Redirigir al usuario a la página principal
+        return redirect(url('/')); // Redirigir al usuario a la página principal
     }
 
 }
